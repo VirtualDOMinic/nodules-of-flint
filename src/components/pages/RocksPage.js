@@ -30,10 +30,12 @@ const NodulesContainer = styled.div`
 
 class RocksPage extends Component {
   state = {
-    selectedImage: ""
+    selectedImage: "",
+    imageOrderArr: Array.from({length: 200}, (_, i) => i + 1)
   }
 
   showModal = (event) => {
+    console.log("modal clicked!")
     this.setState({selectedImage: event.target.src})
   }
 
@@ -49,7 +51,7 @@ class RocksPage extends Component {
             title='NODULES OF FLINT'
           />
           <NodulesContainer>
-            {this.props.nodules.map(n => <Nodule key={n} number={n} onClick={this.showModal} />)}
+            {this.state.imageOrderArr.map(n => <Nodule key={n} number={n} onClick={this.showModal} />)}
           </NodulesContainer>
           <Footer
             name='Photography by Paige Scalco. Coded by Lee Doughty. 2018'
@@ -61,8 +63,8 @@ class RocksPage extends Component {
   }
 }
 
-RocksPage.defaultProps = {
-  nodules: Array.from({length: 200}, (_, i) => i + 1)
-}
+// RocksPage.defaultProps = {
+//   nodules: Array.from({length: 200}, (_, i) => i + 1)
+// }
 
 export default RocksPage;
