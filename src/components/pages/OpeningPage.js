@@ -33,7 +33,6 @@ class OpeningPage extends Component {
     }
     return (
         <Container>
-          <Header title='NODULES OF FLIIIIIIIINT'/>
           <Link to="/rockspage">
               <GifContainer>
                 <img src={require('../atoms/Loading.gif')} onClick={() => imageClick()}/>

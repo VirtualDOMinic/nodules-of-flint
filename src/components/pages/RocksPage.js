@@ -35,7 +35,6 @@ class RocksPage extends Component {
   }
 
   showModal = (event) => {
-    console.log("modal clicked!")
     this.setState({selectedImage: event.target.src})
   }
 
@@ -43,11 +42,22 @@ class RocksPage extends Component {
     this.setState({selectedImage: ""})
   }
 
+  randomiseArr = (arr) => {
+    console.log("randomising array")
+    return arr.reverse()
+  }
+
+  // Purposely verbose function name for demo purposes!
+  randomiseImages = () => {
+    this.setState({imageOrderArr: this.randomiseArr(this.state.imageOrderArr)})
+  }
+
   render() {
     return (
       <div>
         <Container>
           <Header
+            clickFn={this.randomiseImages}
             title='NODULES OF FLINT'
           />
           <NodulesContainer>
@@ -63,8 +73,5 @@ class RocksPage extends Component {
   }
 }
 
-// RocksPage.defaultProps = {
-//   nodules: Array.from({length: 200}, (_, i) => i + 1)
-// }
 
 export default RocksPage;
