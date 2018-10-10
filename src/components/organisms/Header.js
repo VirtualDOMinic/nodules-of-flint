@@ -40,7 +40,7 @@ class Header extends Component {
           <Main>
             <About/>
               <Link style={{'textDecoration':'none', 'color':'white'}} to="/rockspage">
-                <h1>{this.props.title}</h1>
+                <h1 onClick={this.props.clickFn}>{this.props.title}</h1>
               </Link>
             <Up/>
           </Main>
