@@ -42,9 +42,26 @@ class RocksPage extends Component {
     this.setState({selectedImage: ""})
   }
 
+  // Took the randomise function from a site I like: gomakethings.com/how-to-shuffle-an-array-with-vanilla-js
+  // Used this as I don't think we need lodash just for this functionality, and it's too late for me to make this function myself :P
   randomiseArr = (arr) => {
-    console.log("randomising array")
-    return arr.reverse()
+
+    var currentIndex = arr.length;
+	  var temporaryValue, randomIndex;
+
+	// While there remain elements to shuffle...
+	while (0 !== currentIndex) {
+		// Pick a remaining element...
+		randomIndex = Math.floor(Math.random() * currentIndex);
+		currentIndex -= 1;
+
+		// And swap it with the current element.
+		temporaryValue = arr[currentIndex];
+		arr[currentIndex] = arr[randomIndex];
+		arr[randomIndex] = temporaryValue;
+	}
+
+	return arr;
   }
 
   // Purposely verbose function name for demo purposes!
